@@ -1,133 +1,428 @@
-<html>
- <head>
-<link type="text/css" rel="stylesheet" href="https://www.dropbox.com/s/trsldt0me90jzs8/resume.css"/>
-<title></title> 
+<!doctype html>
+<html lang=en>
+<head>
+<meta charset="utf-8" />
+<meta name="verify-v1" content="91yIG+EaOdwKuPX+R9ChHEWVXJ6wdQsq0gqD1c1sbaY="/>
+<title>David Shapiro, Resume- Web Developer</title>
+<style type="text/css">
+body{font-family:Geneva, Arial, Helvetica, sans-serif;font-size:12px;font-weight:normal;color:#000000;text-align:center;margin:0;padding:0;line-height:1.5em;}
+header, section, article{display:block;}
+header{text-align:center;position:relative;z-index:1;}
+section{margin:20px 0 10px;padding:0;}
+p{margin-top:0;padding:0;}
+ul, ol{margin:10px 0 0;padding:0;}
+h1{margin:5px;font-size:2em;font-weight:bold;}
+h2{font-size:1.4em;font-style:italic;font-weight:bold;margin:5px 0;}
+h5{margin:20px 0 10px;font-size:1.2em;font-weight:bold;}
+a, a:link, a:visited{border:medium none;text-decoration:none;color:#009;cursor:pointer;}
+#resumecontainer{background-color:#F6F6F6;text-align:left;padding:20px;margin:20px auto;min-width:300px;max-width:600px;position:relative;}
+header p{margin:5px;}
+#links img{border:0 none;}
+.skills{margin:10px 10px;}
+.project{margin:10px 0 20px 10px;}
+section > p, section > article{margin:5px 0 0 10px;}
+#skills_section{position:relative;z-index:0;}
+#body_popup{position:absolute;left:0;top:0;z-index:1000;display:none;background-color:#FFFFFF;border:1px solid #000;padding:20px;min-width:300px;max-width:440px;text-align:left;}
+a:hover{text-decoration:none;color:#03F;}
+.close{display:block;float:right;}
+li{margin-left:5px;list-style-position:inside;list-style-type:circle;padding-left:0}
+ol > li{list-style-position:inside;list-style-type:decimal;margin-bottom:10px;margin-left:0;}
+#links{position:absolute;top:0;right:0;width:60px;}
+.formats{display:inline-block;height:16px;width:16px;background:url(img/links.png) no-repeat;}
+#doc{background-position:0 0;}
+#txt{background-position:0 -52px;}
+#pdf{background-position:0 -26px;}
+.indent{margin-left:20px;}
+@media only screen and (max-device-width: 480px) {
+body{font-size:18px;}
+#resumecontainer{padding:20px;margin:20px;max-width:1000px;}	
+#body_popup{max-width:1000px;}
+}
+</style>
+<script type="text/javascript">
+(function(){
+  function loadScript(url, callback){  //lifted from Nick Zakas
+    var script = document.createElement("script")
+    script.type = "text/javascript";
+    if (script.readyState){  //IE
+      script.onreadystatechange = function(){
+        if (script.readyState == "loaded" ||
+          script.readyState == "complete"){
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    }else{  //Others
+      script.onload = function(){
+        callback();
+      };
+    }
+    script.src = url;
+    document.body.appendChild(script);
+  }
+  //libraries to load after document.load event
+  function afterLoad() {
+	loadScript("http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js", afterJQLoad);
+	loadScript("http://www.google-analytics.com/ga.js", googleCrap);
+  }
+  //stuff to do after jQuery is loaded
+  function afterJQLoad(){
+    var details = '',
+      coords = {left:'0px', top:'0px'},
+      close = function(){
+        details = '';
+        $("#body_popup > div.temp").remove();
+	    $("#body_popup").css({left:'0px', top:'0px'}).hide();
+      };
+    $(".details, .notice").click(function(e){  
+      var $target = $(this),
+	    coords = {left:'10px', top:e.pageY + 'px'};
+	  if(details !== ''){ 
+	    close();
+	  }
+	  details = $(this.rel).html();
+	  var id = ($target.hasClass("details")) ? "#skills_popup" : "#notice_popup";
+	  $("#body_popup").append(details).css(coords).show();
+    });
+    $(".close").click(function(){
+	  close();
+    });
+    $(".external").on('click', function(){
+      var url = this.rel;
+      window.open(url);
+      return;
+    }); 
+  }
+  function googleCrap(){
+    try {
+      var pageTracker = _gat._getTracker("UA-8130141-1");
+      pageTracker._trackPageview();
+    }catch(err){}  
+  }
+  
+  if (window.addEventListener){
+    window.addEventListener("load", afterLoad, false);
+  }else if (window.attachEvent){
+    window.attachEvent("onload", afterLoad);
+  } else {
+    window.onload = afterLoad;
+  }
+})();
+</script>
+<!--[if lt IE 9]>
+<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 </head>
+
 <body>
-<div id="header">
-<p id="name">Zele Cheng</p>
-         <a href="mailto:deepsukhwani@gmail.com" target="_blank"><p id="email">chengzelei@bupt.edu.cn</p></a>
-     </div>
-     <div class="left">
-     </div>
-     <div class="right">
-            <h3>CV Highlights</h3>
-            <p>
-            <ul>
-                <li>Currently going through CS253 – Web Application Engineering and CS61A – Structure & Interpretation of Computer Programs</li>
-                <li>Learnt basic Python, JavaScript, HTML, CSS on Codecademy.com.</li>
-                <li>An independent, dedicated, efficient person. These attributes are proved through the series of courses I have taken or I am taking as of now independently through online platforms.</li>
-                <li>Good Communication Skills, Presentation Skills, attitude towards leadership, authorisation and delegation, conflict resolution and negotiation and a very good team worker.</li></ul>
-            </p>
-            <h3>Professional Experience</h3>
-            <h4 id="company-name">Wingify Software Pvt Ltd</h4>
-            <p id="job-title"><strong>Support Engineer (Technical Support)</strong></p>
-            <p id="job-responsibilities">Job Responsbilities</p>
-            <p>
-            <ul>
-                <li>Answer customer queries over email / ticketing system</li>
-                <li>Interact with our engineering team to get software issues and bugs resolved</li>
-                <li>Occasionally interact with customers over Skype or telephone</li>
-                <li>Contribute ideas to the team on how customers can be delighted</li></ul>
-            </p>
-            <h3>Educational Qualifications</h3>
-            <table>
-                <tr id="heading">
-                    <td>Qualification</td>
-                    <td>Board</td>
-                    <td>Percentage / Grades</td>
-                    <td>Year</td>
-                </tr>
-                <tr>
-                    <td>S.S.C</td>
-                    <td>G.S.E.B India</td>
-                    <td>75.57%</td>
-                    <td>2004</td>
-                </tr>
-                <tr>
-                    <td>H.S.C (Science Stream)</td>
-                    <td>G.S.E.B India</td>
-                    <td>72.40%</td>
-                    <td>2006</td>
-                </tr>
-                <tr>
-                    <td>GDCA (Grad. Dipl in Computer Applications)</td>
-                    <td>NIE (National Institute Of Engineering), Mumbai, India</td>
-                    <td>A Grade</td>
-                    <td>2008</td>
-                </tr>
-                <tr>
-                    <td>B.Sc. (Hons) - Applied Accounting</td>
-                    <td>Oxford Brookes University</td>
-                    <td>2:1 – Upper Second Class Honours</td>
-                    <td>2012</td>
-                </tr>
-                <tr>
-                    <td>Chartered Accounting - ACCA</td>
-                    <td>ACCA Glasgow, UK</td>
-                    <td>Passed (1st Attempt)</td>
-                    <td>2013</td>
-                </tr>
-            </table>
-            <h3>Independent Courses</h3>
-            <p>
-            <ul>
-                <li>
-                <span id="course-name">HTML & CSS for Beginners – Web Fundamentals</span> – Codecademy.com</li>
-                <li>
-                <span id="course-name">Python – Fundamentals and Dynamic Programming </span> - Codecademy.com</li>
-                <li>
-                <span id="course-name">JavaScript – Programming Basics, JS Apps and Build Games </span> - Codecademy.com</li>
-                <li>
-                <span id="course-name">CS101: Introduction to Computer Science - Building a Web Crawler</span> - Udacity.com</li>
-                <li>
-                <span id="course-name">CS50x – Introduction to Computer Science I</span> – edX.org & Harvard University</li>
-                <li>
-                <span id="course-name">Calculus One</span> - Ohio State University & Coursera.org</li>
-                <li>
-                <span id="course-name">Introduction to Finance</span> - Coursera.org & University of Michigan</li>
-            </ul>
-            <h3>Technical Skills</h3>
-            <p>
-            <ul>
-                <li>
-                <span id="course-name">Operating Systems:</span> DOS, Windows 98, Windows 2000, Windows XP, Windows NT, Windows Server 2003, Windows Vista, Windows 7, Macintosh Computers (OS X), Linux (Ubuntu, Fedora)</li>
-                <li>
-                <span id="course-name">Application Software:</span> Office 97-2003; Office XP, Office 2007, Office for Mac 2011, iWork ’09, Sage Accounting Software, Sage 50 (Accounting Software), Excel 2003/2007 for Financial Modelling spreadsheets.</li>
-                <li>
-                <span id="course-name">Programming Skills:</span>HTML, CSS, Python, JavaScript, learning C and C++</li></ul>
-            </p>
-            <h3>Certifications / Awards:</h3>
-            <p>
-            <ul>
-                <li>Scored highest in ACCA P1 – Governance, Risk & Ethics exam – June 2012 session amongst full time international students at Kaplan Financial, London.</li>
-                <li>Interviewed by ACCA for “international ACCA student in UK”, interview published in January 2012 edition of ACCA Student Accountant Magazine.</li>
-                <li>Interviewed by ACCA for “international ACCA student in UK”, interview published in January 2012 edition of ACCA Student Accountant Magazine.</li></ul>
-            </p>
-            <h3>Personal Information:</h3>
-            <p>
-            <ul>
-                <li>
-                A young, determined hard and smart working person. I believe in task based roles and complete ownership of work.
-                <li>
-                <span id="course-name">Languages Known:</span>English, Hindi, Gujarati and Sindhi</li>
-                <li>
-                <span id="course-name">Hobbies:</span>I love reading Finance and IT related books / magazines, playing Chess, swimming, listening music, surfing Internet, self-learning through e-courses.</li> </ul>
-            </p>
-            <h3>Other Information</h3>
-            <p>
-            <ul>
-                <li>
-                <span id="course-name">Expected Salary:</span>As per company standards</li>
-                <li>
-                <span id="course-name">Area of Interest:</span>Software Development, Programming, Start-ups, Coding, App Development, Technical Support, Support Engineer, Customer Happiness, Client service, Investment Banking, Corporate Finance, Hedge Funds, Mergers & Acquisitions, Analyst, Equity Research, Business Analysis</li>
-                <li>
-                <span id="course-name">Joining Date:</span>Immediate</li></ul>
-            </p>
-            <h3>Declaration</h3>
-            <p>
-            I hereby declare that the details furnished above are true and correct to the best of my knowledge and belief.</p>
-     </div>
-     <div id="footer"></div>
-    </body>
+
+<div id="links">
+  <a class="formats" id="pdf" href="dshapiro.pdf"></a>
+  <!--<a class="formats" id="doc" href="dshapiro.doc"></a>-->
+  <!--<a class="formats" id="txt" href="dshapiro.txt"></a>-->
+</div>
+
+<div id="resumecontainer">
+
+<header>
+<h1>David Shapiro</h1>
+<p><a href="mailto:resume@david-shapiro.net">resume@david-shapiro.net</a></p>
+<p><a href="http://www.linkedin.com/in/dgshapiro">http://www.linkedin.com/in/dgshapiro</a></p>
+<p><a href="https://github.com/dgs700/">https://github.com/dgs700</a></p>
+
+<p><strong>Web Developer Resume &amp; Portfolio</strong></p>
+<p><em><a rel="#notice" class="proj_link notice">Notice to 3rd Party Recruiters (Please Read)</a></em></p>
+</header>
+
+<section>
+<h2>Objective</h2>
+<p>Seeking challenging opportunities in <em><strong>front-end web development / UI architecture</strong></em> within a 25 statute mile radius of Mountain View, CA 94043.</p>
+</section>
+
+<section>
+<h2>Summary</h2>
+<p>Fifteen years professional Internet industry experience
+in front &amp; backend web development, database design, integration, 
+implementation, software development, network and 
+systems administration, project and account management. Significant experience in SAAS, and Non-profit sectors.</p>
+</section>
+
+<section>
+<h2>Skills</h2>
+<article class="skills">
+<strong>Expert / Advanced</strong>
+<p>OO Javascript, jQuery, Backbone.js, Underscore.js, Require.js, xhtml, AJAX / JSON, CSS 2.1/3, Client debugging / optimization tools and techniques- Firebug, YSlow, JSLint, JSMin, Cake PHP, Dreamweaver, Aptana IDE, Netbeans IDE, MVC design, semantic markup, Document Object Model <a href="https://gist.github.com/2396079" target="_blank">(code sample)</a></p>
+</article>
+
+<article class="skills">
+<strong>Competent</strong>
+<p>REST, Git, Cross browser compatability, Dojo, Object Oriented PHP, Drupal CMS, MySQL, Java, J2EE, JPA, Struts 2, Webwork, Spring, Hibernate, Tomcat, Apache, SSL, JSP, A12Y, I18N, Photoshop, Acrobat, Zend Server, Linux / Unix shell, Windows, HTML 5 <a href="https://gist.github.com/2372741" target="_blank">(code sample)</a></p>
+</article>
+
+<article class="skills"><strong>Moderate Exposure</strong> <p>SCSS, Zend Framework, social media platforms &amp; integration, Web Services (WSDL/SOAP), Ant, 
+ JSF, JBOSS, Glassfish, EJB, JMS, Velocity, Perl, Subversion SVN, CVS, Eclipse IDE</p>
+</article> 
+</section>
+
+<section id="skills_section">
+<h2>Clients &amp; Project Portfolio</h2>
+
+<article class="project">
+  <a class="proj_link external" rel="http://www.studentmentor.org/">
+  <strong>StudentMentor.org</strong></a> 
+  <strong class="indent">Front End Web Development</strong>
+  <em class="indent">2011 - present</em>
+<ul>
+<li>Web application migration from server (PHP, Zend) to client (Javascript, Backbone.js) <a href="https://gist.github.com/2244334" target="_blank">(code sample - js)</a></li>
+<li>Comprehensive website performance optimizations</li>
+<li>Javascript / AJAX UI upgrades and improvements <a href="https://gist.github.com/2244421" target="_blank">(code sample - js)</a></li>
+<li>jQuery, Backbone.js, ajax, html5, rest, css/scss, php, MySQL, ZendFramework</li>
+</ul>
+</article>
+
+<article class="project">
+  <a class="proj_link external" rel="http://www.midpenbgc.org">
+  <strong>Boys &amp; Girls Club</strong></a> 
+  <strong class="indent">Web Development Consultant &amp; Board Member</strong>
+  <em class="indent">2006 - present</em>
+<ul>
+<li>End to end web development <a href="https://gist.github.com/2370994" target="_blank">(code sample - php)</a> <a href="https://gist.github.com/2371888" target="_blank">(code sample - css)</a></li>
+<li>Cake PHP, MySQL, jQuery, CSS, AJAX / DHTML  <a href="https://gist.github.com/2370952" target="_blank">(code sample - js)</a>  <a href="https://gist.github.com/2370713" target="_blank">(code sample - js)</a></li> 
+<li><a class="proj_link details" rel="#bgc">Project details</a></li>
+</ul>
+</article>
+
+<article class="project">
+  <a class="proj_link external" rel="http://www.conservationcorpsnorthbay.org/">
+  <strong>Conservation Corps</strong></a> 
+  <strong class="indent">Web Development Consultant</strong>
+  <em class="indent">2008 - present</em>
+<ul>
+<li>End to end web development</li>
+<li>Drupal CMS, Dojo, jQuery, Java, JSP, Struts 2, Spring, Hibernate, MySQL, CSS <a href="https://gist.github.com/2372284" target="_blank">(code sample - java)</a></li>
+<li><a class="proj_link details" rel="#mcc">Project details</a></li>
+</ul>
+</article>
+
+<article class="project">
+  <a class="proj_link external" rel="http://www.taprootfoundation.org/">
+  <strong>Taproot Foundation</strong></a> 
+  <strong class="indent">Account Director, Project Manager, Web Developer</strong>
+  <em class="indent">2006 - 2011</em>
+<ul>
+<li>Recruit multi-disciplinary teams for pro-bono advanced website grants in the non-profit sector</li>
+<li>Manage client relationships, project scopes, and time-lines</li>
+<li>Manage consulting teams through all project phases- research, draft proposals, design, implementation, follow-up</li>                       
+<li>Provide high level and detailed technical direction to other developers and designers</li>
+<li>Ensure all deliverables conform to Best Practices and current standards</li>
+<li>Four year record of 100% client satisfaction</li>
+</ul>
+</article>
+
+<article class="project">
+  <a class="proj_link external" rel="http://www.sopypaa.org/">
+  <strong>SOPYPAA</strong></a> 
+  <strong class="indent">Web Developer - Pro Bono</strong>
+  <em class="indent">2007 - 2011</em>
+<ul>
+<li>End to end web development</li>
+<li>Cake PHP, jQuery, MySQL, CSS, AJAX</li>
+<li><a class="proj_link details" rel="#ypaa">Project details</a></li>
+</ul>
+</article>
+
+<article class="project">
+  <a class="proj_link external" rel="http://www.projecthired.org/">
+  <strong>ProjectHired</strong></a> 
+  <strong class="indent">Web Development Consultant</strong>
+  <em class="indent">2009</em>
+<ul>
+<li>JavaScript development</li>
+<li>DHTML menu navigation</li>
+</ul>
+</article>
+
+<article class="project">
+  <a class="proj_link external" rel="http://www.universalgiving.org">
+  <strong>UniversalGiving</strong></a> 
+  <strong class="indent">Web Developer - Pro Bono</strong>
+  <em class="indent">2007 - 2008</em>
+<ul>
+<li>Web Application development and maintenance- presentation layer and client code</li>
+<li>Javascript, Java, JSP, Struts, CVS</li>
+</ul>
+</article>
+
+<article class="project">
+  <a class="proj_link external" rel="http://www.rebuildingtogetherpeninsula.org">
+  <strong>Rebuilding Together Peninsula</strong></a> 
+  <strong class="indent">Web Developer - Pro Bono</strong>
+  <em class="indent">2005 - 2007</em>
+<ul>
+<li>Implemented complete site redesign</li>
+<li>HTML, CSS, JavaScript, PHP</li>
+</ul>
+</article>
+
+<article class="project">
+  <a class="proj_link external" rel="http://www.the-river.org">
+  <strong>The River Church Community</strong></a> 
+  <strong class="indent">Web Developer - Pro Bono</strong>
+  <em class="indent">2002 - 2003</em>
+<ul>
+<li>Web forms and custom content management</li>
+<li>HTML, CSS, Java, JSP, JDBC</li>
+</ul>
+</article>
+</section>
+
+<section id="clients">
+<h2>Selected Corporate Client List <em style="font-size:12px;font-weight:normal;">(1996 - 2002)</em></h2>
+
+<p><a class="proj_link external" rel="http://www.netsuite.com"><strong>Netsuite, Inc.</strong></a>
+<span class="indent">Senior Webserver Administrator</span></p>
+
+<p><a class="proj_link external" rel="http://www.narus.com"><strong>Narus, Inc.</strong></a>
+<span class="indent">Senior System &amp; Network Administrator</span></p>
+
+<p><a class="proj_link external" rel="http://www.quova.com"><strong>Quova, Inc.</strong></a>
+<span class="indent">Senior System &amp; Network Administrator</span></p>
+
+<p><a class="proj_link external" rel="http://www.cyberstars.com/psvc/enter.html"><strong>Philips Silicon Valley Center</strong></a>
+<span class="indent">Network Engineer</span></p>
+
+<p><a class="proj_link external" rel="http://www.sun.com"><strong>Sun Microsystems (Oracle)</strong></a>
+<span class="indent">System Administrator</span></p>
+
+<p><a class="proj_link external" rel="http://www.home.agilent.com"><strong>Agilent Technologies</strong></a>
+<span class="indent">Web Developer</span></p>
+
+<p><a class="proj_link external" rel="http://netscape.aol.com/"><strong>Netscape Communications (AOL)</strong></a>
+<span class="indent">System Administrator</span></p>
+
+<p><a class="proj_link external" rel="http://go.com/"><strong>Infoseek (Go.com)</strong></a>
+<span class="indent">Software Developer</span></p>
+
+<p><a class="proj_link external" rel="http://www-306.ibm.com/software/data/informix/"><strong>Informix Software (IBM)</strong></a>
+<span class="indent">System Administrator</span></p>
+</section>
+
+<section>
+<h2>Education</h2>
+<p><strong>University of California at Berkeley</strong>, BA Psychology</p>
+<p><strong>Foothill College</strong>, 42 units computer science, 4.0 GPA</p>
+
+</section>
+<br/><br/>
+<!--<p>
+    <a href="http://validator.w3.org/check?uri=referer" style="border-bottom:none;"><img
+        src="http://www.w3.org/Icons/valid-xhtml10-blue"
+        alt="Valid XHTML 1.0 Strict" height="31" width="88" style="border:none;" /></a>
+<a href="http://jigsaw.w3.org/css-validator/check?uri=referer" style="border-bottom:none;">
+    <img style="border:none;width:88px;height:31px"
+        src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+        alt="Valid CSS!" />
+</a>
+</p>
+-->
+<section style="margin-top:100px;">
+<h2>Project Details</h2>
+
+<article id="bgc" class="skills">
+<div class="temp">
+<h5><a class="proj_link external" rel="http://www.midpenbgc.org">Mid Peninsula Boys &amp; Girls Club</a></h5>
+<p>
+Organizational needs<br/><br/>
+Transform design mockups into client side code that is cross-browser compatible, and adheres to Web 2.0 standards and industry best practices.  Implement ease-of-use client behaviors and navigation with unobtrusive Javascript and jQuery.  Provide custom content management and information capture for fund-raising events, donors, members, and community. Ensure that all code is I18N ready for plans to add Spanish and Chinese languages. Ensure that all forms and data are secure with SSL and data sanitization.
+<br/><br/>
+Implementations
+</p>
+<ul>
+<li>Cake PHP framework configuration and custom extensions for MVC server-side logic</li>
+<li>MySQL configuration as attached data-store for above</li>
+<li>jQuery implementation for DHTML, AJAX form submits, validation, and image manipulation</li>
+<li>Internationalization (I18N), SSL</li>
+</ul>
+</div>
+</article>
+
+<article id="mcc" class="skills">
+<div class="temp">
+<h5><a class="proj_link external" rel="http://www.conservationcorpsnorthbay.org/">Conservation Corps North Bay</a></h5>
+<p>
+Organizational needs<br/><br/>  
+Site redesign to project a more professional appearance to the donor community. Interactive capabilities for applicants, volunteers, donors, and community members to submit information electronically and reduce paper usage.  Content management features to allow non-technical staff to add, delete, and update dynamic content. Multi-language capability for Spanish speaking corps members.
+<br/><br/>
+Implementations:
+</p>
+<ul>
+<li>Version 2.0 (released September, 2010)</li>
+<li>Extensive Drupal CMS customization and configuration to meet rapidly changing needs</li>
+<li>Complete custom Drupal theming to maintain current design</li>
+<li>Interoperability with legacy java based features<br/><br/></li>
+
+<li>Version 1.0 (released March, 2009)</li>
+<li>Custom CMS, data capture, and administrative application business logic implemented with Java / Struts 2 framework with Spring</li>
+<li>Model layer implemented with Hibernate / JPA, Spring / JTA, and MySQL for O/R mapping</li>
+<li>Model layer architected to utilize DAO, DTO, Entity Session design patterns</li>
+<li>View layer components include JSP, Freemarker, OGNL, Struts Tags</li>
+<li>View layer extensions include custom tag library to support Dojo 1.0+</li>
+<li>Client code implemented with XHTML, CSS, Javascript</li>
+<li>Extensive Dojo implementation for off-the-shelf widgets and custom form widgets, dynamic content display widgets</li>
+<li>Extensive cross browser compatibility testing</li>
+<li>SEO and Google Search integration</li>
+</ul>
+</div>
+</article>
+
+<article id="ypaa" class="skills">
+<div class="temp">
+<h5><a class="proj_link external" rel="http://www.sopypaa.org/">Bay Area Young People in AA</a></h5>
+<p>
+Organizational needs<br/><br/>
+
+Simple to view website that is mobile friendly and displays as much information as possible with a single page load.  Custom CMS features that are easy to learn and use for an organization with frequent turnover.
+<br /><br />
+Implementations
+</p>
+<ul>
+<li>PHP / Cake PHP framework configuration and custom extensions for MVC server-side logic</li>
+<li>MySQL configuration as attached datastore for above</li>
+<li>jQuery implementation for DHTML, AJAX form submits, content scrolling and overlay</li>
+</ul>
+</div>
+</article>
+
+<article id="notice" class="skills">
+<div class="temp">
+<h5>Notice to 3rd Party Recruiters</h5>
+<p>
+Dear Unsolicited Recruiters:
+<br/><br/>
+I am happy to work with those representing legitimate companies at fair rates.  Unfortunately, there are too many unscrupulous clowns out there trying to make a quick buck that are disrespectful of my time. So I have adopted a set of non-negotiable policies for dealing with 3rd party entities.  If you are able to respect and abide by ALL of my policies then great, perhaps we can work together, and if not, PLEASE MOVE ON.
+</p>
+<ol>
+<li>I do not deal with off-shore companies under any circumstances. You will be marked as spam.</li>
+<li>I only consider opportunities local to my current address- San Francisco, SF Peninsula, or San Jose.  Send me an out of state listing. I mark you as spam.</li>
+<li>Send a DETAILED JOB DESCRIPTION in the FIRST email including the EXACT CITY where the organization is located.  I do not respond to emails where you only state in your opinion that you have a great job opportunity and want to chat further.  It&rsquo;s a waste of my time and I mark you as a spammer. </li>
+<li>The job listing better be REAL. If it is not, you are marked as spam.</li>
+<li>DO NOT claim to represent a company unless you have done previous business with them- meaning you have successfully placed other candidates there, and DO NOT claim to be representing me to any organization unless all the terms in this list are agreed to and abided by.  I will make an extra effort to notify the principle organization of your fraudulent efforts.</li>
+<li>If you send me a listing, and I respond with interest, if I don't hear back from you, I mark you as spam.</li>
+<li>If you have a &quot;fast growing start-up&quot; I am not interested unless it is for an hourly contract rate.  I have ended up working for free too many times, and I will not do it again. Again, you are marked as spam.</li>
+<li>I will however, consider being part of an initial founding start-up team if the idea is clearly viable. I perform due diligence. Be prepared to provide the necessary information.</li>
+<li>I will not provide reference contact information until interviews have been conducted with the hiring manager AND interest from both sides has been expressed.</li>
+<li>I require a phone screen with the hiring manager before I will agree to an on-site interview.</li>
+<li>I will not spend more than 5 minutes creating special presentations, filling out questionnaires or taking tests.</li>
+</ol>
+</div>
+</article>
+
+</section>
+
+<div id="body_popup">
+<a class="close">[X] Close</a>
+</div>
+
+</div>
+</body>
 </html>
